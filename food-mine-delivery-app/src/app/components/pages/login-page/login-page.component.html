@@ -1,0 +1,74 @@
+<ion-content class="ion-padding" fullscreen>
+  <div class="login-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="center-text">Sign In</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <ion-item>
+            <ion-input
+              type="email"
+              formControlName="email"
+              placeholder="Enter your email"
+            >
+            </ion-input>
+          </ion-item>
+          <ion-text
+            color="danger"
+            *ngIf="
+              loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+            "
+          >
+            <p *ngIf="loginForm.get('email')?.errors?.['required']">
+              Email is required
+            </p>
+            <p *ngIf="loginForm.get('email')?.errors?.['email']">
+              Invalid email format
+            </p>
+          </ion-text>
+
+          <ion-item>
+            <ion-input
+              type="password"
+              formControlName="password"
+              placeholder="Enter your password"
+            >
+            </ion-input>
+          </ion-item>
+          <ion-text
+            color="danger"
+            *ngIf="
+              loginForm.get('password')?.touched &&
+              loginForm.get('password')?.invalid
+            "
+          >
+            <p *ngIf="loginForm.get('password')?.errors?.['required']">
+              Password is required
+            </p>
+            <p *ngIf="loginForm.get('password')?.errors?.['minlength']">
+              Password must be at least 6 characters
+            </p>
+          </ion-text>
+
+          <ion-button
+            expand="block"
+            type="submit"
+            [disabled]="loginForm.invalid"
+            color="primary"
+            class="submitBtn"
+          >
+            Submit
+          </ion-button>
+        </form>
+
+        <div class="register-link">
+          <p>
+            New here?
+            <a routerLink="/register" class="primary-text">Create an account</a>
+          </p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

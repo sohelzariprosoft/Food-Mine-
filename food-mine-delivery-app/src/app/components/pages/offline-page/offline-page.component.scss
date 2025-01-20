@@ -1,0 +1,35 @@
+.offline-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    background: #f9f9f9;
+  
+    ion-img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+  
+    h1 {
+      font-size: 24px;
+      color: #e72929;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+  
+    ion-button {
+      --background: #e72929;
+      --background-activated: #b01f1f;
+      --border-radius: 8px;
+      font-size: 16px;
+    }
+  }
+  

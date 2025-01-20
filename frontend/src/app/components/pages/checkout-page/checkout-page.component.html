@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="content">
+    <app-title title="Order Form" fontSize="1.6rem"></app-title>
+    <form [formGroup]="checkoutForm">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" />
+        <div class="error-list" *ngIf="fc['name'].errors && isSubmitted">
+          <div *ngIf="fc['name'].errors['required']">
+            Name should not be empty
+          </div>
+          <div *ngIf="fc['name'].errors['name']">Name is not correct</div>
+        </div>
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <input id="address" formControlName="address" readonly />
+        <div class="error-list" *ngIf="fc['address'].errors && isSubmitted">
+          <div *ngIf="fc['address'].errors['required']">
+            Address should not be empty
+          </div>
+          <div *ngIf="fc['address'].errors['address']">
+            Address is not correct
+          </div>
+        </div>
+      </div>
+      <!-- for Intel tel input -->
+      <!-- <div>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" /> 
+      </div> -->
+
+      <!-- <div>
+        <label for="phone">Phone</label>
+        <div style="display: flex; gap: 5px; align-items: center">
+          <select id="countryCode" formControlName="countryCode">
+            <option *ngFor="let code of countryCodes" [value]="code">
+              {{ code }}
+            </option>
+          </select>
+
+          <input
+            id="phone"
+            formControlName="phoneNumber"
+            type="number"
+            placeholder="Enter your phone number"
+          />
+        </div>
+      </div> -->
+
+      <div>
+        <label for="phone">Phone</label>
+        <div style="display: flex; gap: 5px; align-items: center">
+          <!-- Country Code Dropdown -->
+          <select id="countryCode" formControlName="countryCode">
+            <option *ngFor="let code of countryCodes" [value]="code">
+              {{ code }}
+            </option>
+          </select>
+
+          <!-- Phone Number Input -->
+          <input
+            id="phone"
+            formControlName="phoneNumber"
+            type="number"
+            placeholder="Enter your phone number"
+          />
+        </div>
+
+        <!-- Error Messages for Country Code -->
+        <div class="error-list" *ngIf="fc['countryCode'].errors && isSubmitted">
+          <div *ngIf="fc['countryCode'].errors['required']">
+            Country code is required.
+          </div>
+          <div *ngIf="fc['countryCode'].errors['invalidCode']">
+            Please select a valid country code.
+          </div>
+        </div>
+        <!-- Error Messages for Phone Number -->
+        <div class="error-list" *ngIf="fc['phoneNumber'].errors && isSubmitted">
+          <div *ngIf="fc['phoneNumber'].errors['required']">
+            Phone number is required.
+          </div>
+          <div *ngIf="fc['phoneNumber'].errors['invalidNumber']">
+            Phone number is not valid.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label>Payment Method</label>
+        <div class="payment-methods">
+          <label>
+            <input type="radio" formControlName="paymentMethod" value="COD" />
+            Cash on Delivery
+          </label>
+          <label>
+            <input type="radio" formControlName="paymentMethod" value="UPI" />
+            UPI Payment
+          </label>
+        </div>
+        <div
+          class="error-list"
+          *ngIf="fc['paymentMethod'].errors && isSubmitted"
+        >
+          <div *ngIf="fc['paymentMethod'].errors['required']">
+            Please select a payment method.
+          </div>
+        </div>
+      </div>
+    </form>
+    <app-order-items-list [order]="order"></app-order-items-list>
+  </div>
+  <div class="map">
+    <app-title title="Choose Your Address On Map" fontSize="1.6rem"></app-title>
+    <map [order]="order"></map>
+  </div>
+  <div class="buttons-container">
+    <div class="buttons">
+      <button (click)="createOrder()">Place Order</button>
+    </div>
+  </div>
+</div>

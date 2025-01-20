@@ -1,0 +1,46 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f8f9fa;
+  }
+  
+  .submitBtn{
+    margin-top: 30px;
+  }
+  
+  ion-card {
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  ion-card-title.center-text {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--ion-color-primary);
+  }
+  
+  // .back-button {
+  //   position: absolute;
+  //   top: 10px; /* Adjust as needed */
+  //   left: 10px; /* Adjust as needed */
+  //   font-size: 1.5rem; /* Adjust the size of the icon */
+  // }
+
+  .register-link {
+    margin-top: 20px;
+    text-align: center;
+  
+    p {
+      font-size: 0.9rem;
+    }
+  
+    a.primary-text {
+      color: var(--ion-color-primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }

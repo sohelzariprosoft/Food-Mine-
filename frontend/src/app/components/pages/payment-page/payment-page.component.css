@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .order-card {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 2px solid #e72929;
+  }
+  
+  .order-header {
+    background-color: #e72929;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .order-info,
+  .user-info,
+  .food-items {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .food-items:last-child {
+    border-bottom: none;
+  }
+  
+  .order-info p,
+  .user-info p {
+    margin: 8px 0;
+  }
+  
+  h2,
+  h3 {
+    margin: 0 0 10px;
+  }
+  
+  .food-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .food-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  .food-details p {
+    margin: 5px 0;
+  }
+  
+  .food-details strong {
+    color: #e72929;
+  }
+  
+
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #e72929; /* Primary color */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #d11f1f; /* Slightly darker shade for hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+  }
+  
+  button:active {
+    background-color: #b71b1b; /* Darker shade for active state */
+    transform: translateY(1px); /* Slightly press effect */
+  }
+  
+  button:disabled {
+    background-color: #e0e0e0; /* Gray for disabled state */
+    color: #a0a0a0; /* Light gray text */
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  

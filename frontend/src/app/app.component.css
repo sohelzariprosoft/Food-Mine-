@@ -1,0 +1,21 @@
+/* app.component.css */
+.header {
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Position at the top of the viewport */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it stays above other elements */
+    background-color: #fff; /* Add a background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  }
+  
+  router-outlet {
+    display: block; /* Ensure it's block-level for layout */
+  }
+  
+  .scrollable-content {
+    margin-top: 60px; /* Adjust this to match the height of your header */
+    overflow-y: auto;
+    height: calc(100vh - 60px); /* Subtract header height from viewport height */
+  }
+  

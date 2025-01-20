@@ -1,0 +1,193 @@
+<ion-content class="ion-padding" fullscreen>
+  <div class="register-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="center-text">Create an Account</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Step 1: User Information -->
+        <div *ngIf="step === 1">
+          <form [formGroup]="userInfoForm">
+            <ion-item>
+              <ion-input type="text" formControlName="name" placeholder="Name">
+              </ion-input>
+            </ion-item>
+            <ion-text
+              color="danger"
+              *ngIf="
+                userInfoForm.get('name')?.touched &&
+                userInfoForm.get('name')?.invalid
+              "
+            >
+              <p *ngIf="userInfoForm.get('name')?.errors?.['required']">
+                Name is required
+              </p>
+            </ion-text>
+
+            <ion-item>
+              <ion-input
+                type="email"
+                formControlName="email"
+                placeholder="Email"
+              >
+              </ion-input>
+            </ion-item>
+            <ion-text
+              color="danger"
+              *ngIf="
+                userInfoForm.get('email')?.touched &&
+                userInfoForm.get('email')?.invalid
+              "
+            >
+              <p *ngIf="userInfoForm.get('email')?.errors?.['required']">
+                Email is required
+              </p>
+              <p *ngIf="userInfoForm.get('email')?.errors?.['email']">
+                Invalid email format
+              </p>
+            </ion-text>
+
+            <ion-item>
+              <ion-input
+                type="tel"
+                formControlName="mobile"
+                placeholder="Mobile Number"
+              >
+              </ion-input>
+            </ion-item>
+            <ion-text
+              color="danger"
+              *ngIf="
+                userInfoForm.get('mobile')?.touched &&
+                userInfoForm.get('mobile')?.invalid
+              "
+            >
+              <p *ngIf="userInfoForm.get('mobile')?.errors?.['required']">
+                Mobile Number is required
+              </p>
+              <p *ngIf="userInfoForm.get('mobile')?.errors?.['pattern']">
+                Enter a valid 10-digit mobile number
+              </p>
+            </ion-text>
+
+            <ion-item>
+              <ion-input
+                type="password"
+                formControlName="password"
+                placeholder="Password"
+              >
+              </ion-input>
+            </ion-item>
+            <ion-text
+              color="danger"
+              *ngIf="
+                userInfoForm.get('password')?.touched &&
+                userInfoForm.get('password')?.invalid
+              "
+            >
+              <p *ngIf="userInfoForm.get('password')?.errors?.['required']">
+                Password is required
+              </p>
+              <p *ngIf="userInfoForm.get('password')?.errors?.['minlength']">
+                Password must be at least 6 characters
+              </p>
+            </ion-text>
+
+            <ion-item>
+              <ion-input
+                type="password"
+                formControlName="confirmPassword"
+                placeholder="Confirm Password"
+              >
+              </ion-input>
+            </ion-item>
+            <ion-text
+              color="danger"
+              *ngIf="userInfoForm.hasError('passwordMismatch')"
+            >
+              <p>Passwords do not match</p>
+            </ion-text>
+
+            <!-- Next Button -->
+            <ion-button
+              expand="block"
+              (click)="goToStep(2)"
+              [disabled]="userInfoForm.invalid"
+              color="primary"
+              class="submitBtn"
+            >
+              Next
+            </ion-button>
+          </form>
+          <div class="register-link">
+            <p>
+              Already Register?
+              <a routerLink="/login" class="primary-text">Sign In</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2: Address Information -->
+        <div *ngIf="step === 2">
+          <ion-button
+            fill="clear"
+            (click)="goToStep(1)"
+            class="back-button"
+            color="dark"
+          >
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ion-button>
+          <form [formGroup]="addressInfoForm">
+            <ion-item>
+              <ion-input
+                type="text"
+                formControlName="address"
+                placeholder="Address"
+              >
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" formControlName="city" placeholder="City">
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input
+                type="text"
+                formControlName="state"
+                placeholder="State"
+              >
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input
+                type="text"
+                formControlName="postalCode"
+                placeholder="Postal Code"
+              >
+              </ion-input>
+            </ion-item>
+            <ion-button
+              expand="block"
+              class="submitBtn"
+              type="submit"
+              (click)="onSubmit()"
+              [disabled]="addressInfoForm.invalid"
+              color="primary"
+            >
+              Submit
+            </ion-button>
+          </form>
+          <div class="register-link">
+            <p>
+              Already Register?
+              <a routerLink="/login" class="primary-text">Sign In</a>
+            </p>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

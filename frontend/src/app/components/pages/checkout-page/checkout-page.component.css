@@ -1,0 +1,110 @@
+.container{
+    margin-top: 1rem;
+    display: flex;
+    margin: 0 2rem 6rem 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .content{
+    width: 35rem;
+    margin-right: 3rem;
+  }
+  .content,form{
+    display: flex;
+    flex-direction: column;
+  }
+  form{
+    width: 100%;
+  }
+  .buttons-container{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .buttons{
+    margin: 2rem;
+    width: 35rem;
+  }
+  button{
+    color: white;
+    background-color: #e72929;
+    width: 100%;
+    height: 3rem;
+    opacity: 0.8;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 2px 2px grey;
+  }
+  button:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+  label {
+    display: block; /* Ensures the label is on its own line */
+    margin-bottom: 5px; /* Adds spacing between the label and input */
+    font-size: 14px; /* Adjusts the font size of the label */
+    font-weight: bold; /* Makes the label text bold */
+    color: #333; /* Sets the text color for the label */
+  }
+  
+  input {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    font-size: 14px; 
+    box-sizing: border-box;  
+  }
+ 
+  input:focus {
+    border-color: #e72929; 
+    outline: none; 
+    box-shadow: #e72929; 
+  }
+
+  .map{
+    width: 35rem;
+    height: 35rem;
+  }
+
+  .error-list {
+    font-size: 0.875rem;
+    color: #e72929; /* Primary red for error messages */
+    margin-top: 0.3rem;
+  }
+  select {
+    width: 15%; /* Makes the input field span the width of its container */
+    padding: 10px; /* Adds internal padding for comfortable typing */
+    border: 1px solid #ccc; /* Adds a light border around the input */
+    border-radius: 4px; /* Rounds the corners of the input field */
+    font-size: 14px; /* Adjusts the font size for input text */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+  }
+  
+  select:focus {
+    border-color: #e72929; /* Changes border color when input is focused */
+    outline: none; /* Removes the default outline on focus */
+    box-shadow: #e72929; /* Adds a subtle glow effect */
+  }
+
+
+  .payment-methods {
+    display: flex;
+    gap: 100px;
+    margin-top: 10px;
+  }
+  
+  .payment-methods input[type='radio'] {
+    accent-color: #e72929; /* Customize the radio button color */
+  }
+  
+  .payment-methods label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-wrap: nowrap;
+  }
+  

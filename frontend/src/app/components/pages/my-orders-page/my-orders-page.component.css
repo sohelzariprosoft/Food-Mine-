@@ -1,0 +1,61 @@
+.custom-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.custom-table th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+
+.custom-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* p-tag {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+} */
+
+/* for test */
+.drag-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 100px;
+  color: red;
+  border-radius: 50px;
+  border: 2px solid darkred;
+  font-weight: boldest;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: absolute; 
+  padding: 10px;
+  gap: 10px; 
+}
+
+.drag-preview-icon {
+  font-size: 24px; /* Increase icon size */
+  color: white; /* Icon color */
+}
+
+.drag-preview-text {
+  font-size: 24px; /* Increase text size */
+  font-weight: bold;
+  color: white; /* Text color */
+}
+
+th.dragging {
+  background-color: #ffcccb;
+  color: white;
+}
+
+

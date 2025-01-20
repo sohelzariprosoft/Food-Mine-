@@ -1,0 +1,52 @@
+<div class="order-modal">
+  <div class="order-container">
+    <div class="order-header">
+      <h2>Order Details</h2>
+      <button class="back-button" (click)="dismissModal()">X</button>
+    </div>
+    <div class="order-content">
+      <!-- Order ID and Status -->
+      <p><strong>Order ID:</strong> {{ order._id }}</p>
+      <p><strong>Order Status:</strong> {{ order.orderStatus }}</p>
+
+      <!-- Phone Info -->
+      <p class="phone">
+        <strong>Phone No:</strong>
+        <span class="phone-no">{{ order.phoneNo }}</span>
+        <a href="tel:+919011941156" class="call-icon" aria-label="Call">
+          <i class="fas fa-phone"></i>
+        </a>
+      </p>
+      <!-- Food Items -->
+      <div class="food-item">
+        <h3>Food Items</h3>
+        <div class="food-detail" *ngFor="let food of order.foodItemsData">
+          <img [src]="food.food.imageUrl" [alt]="food.food.name" />
+          <div class="food-info">
+            <p><strong>Name:</strong> {{ food.food.name }}</p>
+            <p>
+              <strong>Price:</strong>
+              {{ food.foodItemPrice | currency : "INR" : "symbol" : "1.2-2" }}
+            </p>
+            <p><strong>Quantity:</strong> {{ food.quantity }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Info -->
+      <p>
+        <strong>Total Price:</strong>
+        {{ order.totalPrice | currency : "INR" : "symbol" : "1.2-2" }}
+      </p>
+      <p><strong>Payment Method:</strong> {{ order.paymentMethod }}</p>
+      <p><strong>Payment Status:</strong> {{ order.paymentStatus }}</p>
+
+      <!-- Address Info -->
+      <p><strong>Address:</strong> {{ order.address }}</p>
+      <p><strong>Postal Code:</strong> {{ order.postalCode }}</p>
+
+      <!-- Accept Order Button -->
+      <button class="accept-button">Accept Order</button>
+    </div>
+  </div>
+</div>

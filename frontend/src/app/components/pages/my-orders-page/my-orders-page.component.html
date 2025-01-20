@@ -1,0 +1,135 @@
+<!-- <table border="1" *ngIf="orders">
+  <thead>
+    <tr>
+      <th>Sr. No</th>
+      <th>Payment Status</th>
+      <th>Total Price</th>
+      <th>Date</th>
+      <th>Phone No</th>
+      <th>Payment Method</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="orders | async as orderList">
+    <tr *ngFor="let order of orderList; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ order.paymentStatus }}</td>
+      <td>{{ order.totalPrice }}</td>
+      <td>{{ order.created_on | date : "shortDate" }}</td>
+      <td>{{ order.phoneNo }}</td>
+      <td>{{ order.paymentMethod }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<!-- <div class="card" *ngIf="orders">
+  <p-table [value]="orders" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Sr. No</th>
+        <th>Order ID</th>
+        <th>Total Price</th>
+        <th>Date</th>
+        <th>Phone No</th>
+        <th>Payment Status</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-order let-columns="columns">
+      <tr>
+        <td>1</td>
+        <td>{{ order._id }}</td>
+        <td>
+          {{ order.totalPrice | currency : "INR" }}
+        </td>
+        <td>
+          {{ order.created_on | date : "shortDate" }}
+        </td>
+        <td>
+          {{ order.phoneNo }}
+        </td>
+        <td>
+          <p-tag
+            [value]="order.paymentStatus"
+            [severity]="getSeverity(order.paymentStatus)"
+          />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div> -->
+
+<div class="card" *ngIf="orders">
+  <p-table
+    [value]="orders"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    class="custom-table"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th
+          *ngFor="let header of headers"
+          draggable="true"
+          (dragstart)="onDragStart($event, header)"
+        >
+          {{ header }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-order let-rowIndex="rowIndex">
+      <tr (click)="moveToOrderDetails(order._id)">
+        <td>{{ rowIndex + 1 }}.</td>
+        <td>{{ order._id }}</td>
+        <td>{{ order.totalPrice | currency : "INR" }}</td>
+        <td>{{ order.created_on | date : "medium" }}</td>
+        <td>{{ order.phoneNo }}</td>
+        <td>
+          <div
+            [style]="{
+              backgroundColor: getSeverityForOrders(order.orderStatus),
+              fontSize: '13px',
+              padding: '5px 10px',
+              width: '100px',
+              borderRadius: '15px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              display: 'flex',
+              gap: '5px',
+            }"
+          >
+            <span *ngIf="order.orderStatus === 'Processing'"> &#x23F3; </span>
+            <span *ngIf="order.orderStatus === 'Confirmed'"> &#x2714; </span>
+            <span *ngIf="order.orderStatus === 'Shipped'"> &#x1F69A; </span>
+            <span *ngIf="order.orderStatus === 'Delivered'"> &#x1F4E6; </span>
+            <span *ngIf="order.orderStatus === 'Cancelled'"> &#x274C; </span>
+            {{ order.orderStatus }}
+          </div>
+        </td>
+        <td>
+          <div
+            [style]="{
+              backgroundColor: getSeverityForPayments(order.paymentStatus),
+              fontSize: '13px',
+              padding: '5px 10px',
+              width: '100px',
+              borderRadius: '15px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              display: 'flex',
+              gap: '5px',
+            }"
+          >
+            <span *ngIf="order.paymentStatus === 'Paid'"> &#x2714; </span>
+            <span *ngIf="order.paymentStatus === 'Pending'"> &#x23F3; </span>
+            <span *ngIf="order.paymentStatus === 'Refunded'"> &#x21BA; </span>
+            {{ order.paymentStatus }}
+            <!-- <p-tag
+              [value]="order.paymentStatus"
+              [severity]="getSeverity(order.paymentStatus)"
+              [icon]="getIcon(order.paymentStatus)"
+              rounded="true"
+            ></p-tag> -->
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

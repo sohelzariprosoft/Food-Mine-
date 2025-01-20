@@ -1,0 +1,38 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full height to center the card vertically */
+    background-color: #f8f9fa; /* Light background for contrast */
+  }
+  
+  ion-card {
+    width: 90%; /* Make it responsive for smaller screens */
+    max-width: 400px; /* Restrict maximum width */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  ion-card-title.center-text {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--ion-color-primary);
+  }
+  
+  .register-link {
+    margin-top: 20px;
+    text-align: center;
+  
+    p {
+      font-size: 0.9rem;
+    }
+  
+    a.primary-text {
+      color: var(--ion-color-primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+  .submitBtn{
+    margin-top: 30px;
+  }
